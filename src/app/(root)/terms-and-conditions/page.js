@@ -91,7 +91,7 @@ const ContentWrapper = styled.div`
 `;
 
 const TermsList = styled.ul`
-  padding-left: 20px;
+  padding: 0 20px 0 40px;
   line-height: 1.7;
   font-size: 16px;
   color: #444;
