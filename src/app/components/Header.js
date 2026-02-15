@@ -34,6 +34,7 @@ export const Header = () => {
     { path: "/properties", label: "Properties" },
     { path: "/about", label: "About" },
     { path: "/contact", label: "Contact" },
+    { path: "/terms-and-conditions", label: "Terms & Conditions" },
   ];
 
   return (

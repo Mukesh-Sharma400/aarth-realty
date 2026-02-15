@@ -57,7 +57,7 @@ export const SideMenu = ({ sideMenuOpened, setSideMenuOpened }) => {
 
 const DisplayWrapper = styled.div`
   display: none;
-  width: 50%;
+  width: 70%;
   max-width: 300px;
   height: 100vh;
   background: linear-gradient(

@@ -1,21 +1,21 @@
 "use client";
 
-import BaseLayout from "../../components/BaseLayout";
-import { PageHeader } from "@/app/components/PageHeader";
 import Image from "next/image";
 import styled from "styled-components";
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 import { Toast } from "@/app/components/Toast";
+import BaseLayout from "../../components/BaseLayout";
+import { PageHeader } from "@/app/components/PageHeader";
 import HeadOffice from "../../../../public/assets/head-office.jpg";
 
 export default function Contact() {
   const form = useRef();
   const timeoutRef = useRef(null);
-  const phoneNumber = "(+91) 8976630666";
+  const phoneNumber = "+918976630666";
   const emailAddress = "aarthrealtor@gmail.com";
   const officeAddress =
-    "Shree Siddhivinayak CHS Pvt Ltd, Shop No. 02, Plot No. 31, Sector 24, Ulwe, Navi Mumbai - 410206.";
+    "Shree Siddhivinayak CHS Pvt Ltd, Shop No. 02, Plot No. 31, Sector 24, Ulwe, Navi Mumbai - 410206";
   const [toast, setToast] = useState({ visible: false, message: "" });
 
   const showToastMethod = (message) => {
@@ -98,7 +98,7 @@ export default function Contact() {
   const officeSectionData = {
     heading: "Head Office",
     description:
-      "Step into our main office and embark on a journey of personalized interior design solutions! Come visit us and let's reimagine your surroundings together!",
+      "Visit our main office and start your journey to the perfect home or workspace. Let’s find the right property for you—together!",
   };
 
   return (
@@ -138,7 +138,7 @@ export default function Contact() {
           </FieldContainer>
           <SlantedPrimaryButton type="submit">
             <span className="transition"></span>
-            <span className="label">Send Message</span>
+            <span className="label">Send Message →</span>
           </SlantedPrimaryButton>
         </ContactForm>
       </MainSection>
@@ -148,7 +148,7 @@ export default function Contact() {
       </SmallHeader>
       <VisitUsWrapper>
         <LeftSide>
-          <AboutUsImage src={HeadOffice} alt="About Us" />
+          <AboutUsImage src={HeadOffice} alt="" />
         </LeftSide>
         <RightSide data-aos="fade-right">
           <LightHeading>{officeSectionData.heading}</LightHeading>
@@ -244,7 +244,9 @@ const Description = styled.p`
   }
 `;
 
-const MainSection = styled.div``;
+const MainSection = styled.div`
+  transition: all 0.5s ease-in-out;
+`;
 
 const ContactForm = styled.form`
   max-width: 900px;
@@ -418,7 +420,7 @@ const Button = styled.button`
 
 const VisitUsWrapper = styled.div`
   width: 100%;
-  padding: 50px 2%;
+  padding: 50px 5%;
   height: 600px;
   max-height: 600px;
   display: flex;
@@ -496,7 +498,6 @@ const IconText = styled.p`
   margin: 0;
   font-size: 18px;
   color: black;
-  word-break: break-all;
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: 3;

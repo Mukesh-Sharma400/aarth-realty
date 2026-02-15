@@ -29,20 +29,18 @@ export const Testimonials = () => {
 
       <CardsWrapper>
         <TestimonialCard>
-          <ImageBox>
-            <Image src={agent1} alt="user" />
+          <ImageBox data-aos="fade-left">
+            <Image src={agent1} alt="" />
           </ImageBox>
-
           <Content>
-            <span className="quote">“</span>
+            <span className="left-quote">“</span>
             <p>
               Aarth Realton communicated outstandingly, keeping us informed
               throughout our property search and sale. Their friendly approach
               made a stressful time manageable. Highly recommend!
             </p>
-
-            <h4>Yono Bakrie</h4>
-            <span className="role">Football Player</span>
+            <h4>- Yono Bakrie</h4>
+            <span className="right-quote">“</span>
           </Content>
         </TestimonialCard>
       </CardsWrapper>
@@ -62,12 +60,15 @@ const TestimonialsSection = styled.section`
 
 const SectionHeader = styled.div`
   // margin-bottom: 60px;
+  transition: all 0.5s ease-in-out;
 `;
 
 const SectionLabel = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
+  transition: all 0.5s ease-in-out;
+
   margin-bottom: 20px;
 
   span {
@@ -103,6 +104,7 @@ const SectionInfo = styled.div`
   // grid-template-columns: 1.5fr 1fr;
   align-items: center;
   gap: 40px;
+  transition: all 0.5s ease-in-out;
 
   h2 {
     font-size: 36px;
@@ -131,6 +133,7 @@ const CardsWrapper = styled.div`
   display: flex;
   gap: 30px;
   overflow-x: auto;
+  transition: all 0.5s ease-in-out;
 `;
 
 const TestimonialCard = styled.div`
@@ -140,6 +143,8 @@ const TestimonialCard = styled.div`
   padding: 30px;
   border-radius: 24px;
   border: 1px solid #e5e7eb;
+  transition: all 0.5s ease-in-out;
+
   background: #fff;
 
   @media (max-width: 768px) {
@@ -154,6 +159,7 @@ const ImageBox = styled.div`
   border-radius: 20px;
   overflow: hidden;
   flex-shrink: 0;
+  transition: all 0.5s ease-in-out;
 
   img {
     width: 100%;
@@ -168,8 +174,19 @@ const ImageBox = styled.div`
 
 const Content = styled.div`
   position: relative;
+  transition: all 0.5s ease-in-out;
 
-  .quote {
+  .left-quote {
+    font-size: 60px;
+    color: #111827;
+    line-height: 1;
+  }
+
+  .right-quote {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    rotate: 180deg;
     font-size: 60px;
     color: #111827;
     line-height: 1;
@@ -178,16 +195,11 @@ const Content = styled.div`
   p {
     font-size: 18px;
     line-height: 1.6;
-    margin-bottom: 30px;
+    margin-bottom: 30px !important;
   }
 
   h4 {
     font-size: 18px;
     font-weight: 600;
-  }
-
-  .role {
-    font-size: 14px;
-    color: #6b7280;
   }
 `;

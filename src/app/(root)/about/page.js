@@ -1,16 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import Image from "next/image";
-
-import agent1 from "../../../../public/assets/agent1.jpg";
+import { WhyUs } from "@/app/sections/WhyUs";
 import BaseLayout from "../../components/BaseLayout";
 import { PageHeader } from "@/app/components/PageHeader";
+import agent1 from "../../../../public/assets/agent1.jpg";
 import aboutUs from "../../../../public/assets/real-aboutus.jpg";
-import missionImage from "../../../../public/assets/real-mission.jpeg";
 import { SectionDivider } from "@/app/components/SectionDivider";
-import { WhyUs } from "@/app/sections/WhyUs";
+import missionImage from "../../../../public/assets/real-mission.jpeg";
 
 export default function About() {
   const [screenWidth, setScreenWidth] = useState(
@@ -34,7 +33,7 @@ export default function About() {
   };
 
   const sectionData0 = {
-    heading: "Tannu  Sharma",
+    heading: "Tannu Sharma",
     description:
       "Meet the driving force behind Aarth Realtor, Tannu  Sharma. With deep market knowledge and a strong commitment to transparency, he has built the company on trust, integrity, and long-term value. His practical approach and attention to detail ensure every client receives honest guidance and reliable real estate solutions.",
   };
@@ -67,12 +66,12 @@ export default function About() {
             <SectionDescription>{sectionData1.description}</SectionDescription>
           </RightSide>
           <LeftSide>
-            <SectionImage src={aboutUs} alt="About Us" />
+            <SectionImage src={aboutUs} alt="" />
           </LeftSide>
         </SectionWrapper>
         <SectionWrapper className="section-second">
           <LeftSide>
-            <SectionImage src={missionImage} alt="About Us" />
+            <SectionImage src={missionImage} alt="" />
           </LeftSide>
           <RightSide data-aos="fade-right">
             <SectionLabel>
@@ -88,18 +87,14 @@ export default function About() {
         <SectionDivider />
         <OwnerSectionWrapper>
           <SectionLabel>
-            <span>OUR Founders</span>
+            <span>OUR Founder</span>
             <i />
           </SectionLabel>
           <SectionInfo>
-            <h2>Meet the People Behind</h2>
+            <h2>Meet the Person Behind</h2>
           </SectionInfo>
           <BigSectionWrapper>
-            <OwnerImage
-              src={agent1}
-              alt="Tannu "
-              data-aos={screenWidth > 768 ? "fade-left" : "fade-up"}
-            />
+            <OwnerImage src={agent1} alt="" data-aos="fade-left" />
             <div>
               <SectionHeading>{sectionData0.heading}</SectionHeading>
               <SectionDescription>
@@ -195,6 +190,8 @@ const SectionLabel = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
+  transition: all 0.5s ease-in-out;
+
   margin-bottom: 20px;
 
   span {
@@ -252,22 +249,24 @@ const SectionDescription = styled.p`
 `;
 
 const BigSectionWrapper = styled.div`
-  padding: 20px 2%;
+  padding: 30px;
   display: flex;
   align-items: center;
   gap: 100px;
-  margin-bottom: 50px;
+  border-radius: 24px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
   transition: all 0.5s ease-in-out;
 
-  background-image: repeating-linear-gradient(
-    to right,
-    #1d1d1d,
-    #1d1d1d 0.5px,
-    transparent 0.5px,
-    transparent
-  );
-  background-size: 200px 200px;
-  background-color: #0c0e17;
+  // background-image: repeating-linear-gradient(
+  //   to right,
+  //   #1d1d1d,
+  //   #1d1d1d 0.5px,
+  //   transparent 0.5px,
+  //   transparent
+  // );
+  // background-size: 200px 200px;
+  // background-color: #0c0e17;
   border-radius: 20px;
 
   ${SectionHeading} {
@@ -337,12 +336,16 @@ const SectionWrapper = styled.div`
 
 const OwnerSectionWrapper = styled.div`
   width: 100%;
+  transition: all 0.5s ease-in-out;
+
   padding: 50px 5%;
 `;
 
 const SectionInfo = styled.div`
   display: grid;
   align-items: center;
+  transition: all 0.5s ease-in-out;
+
   margin-bottom: 30px;
 
   h2 {

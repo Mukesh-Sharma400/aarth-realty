@@ -9,4 +9,5 @@ const DisplayWrapper = styled.div`
   height: 1.5px;
   margin: 0 auto;
   background-color: #efefef;
+  transition: all 0.5s ease-in-out;
 `;

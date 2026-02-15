@@ -62,7 +62,7 @@ export default function Properties() {
     <BaseLayout>
       <PageHeader pageHeader={pageHeader} />
       <SectionWrapper>
-        <SearchBar />
+        {/* <SearchBar /> */}
         <CardsWrapper>
           {properties.map((item) => (
             <Card key={item.id}>
@@ -101,6 +101,7 @@ const CardsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
+  transition: all 0.5s ease-in-out;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
@@ -116,9 +117,7 @@ const Card = styled.div`
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
-  transition:
-    transform 0.5s ease,
-    box-shadow 0.5s ease;
+  transition: all 0.5s ease-in-out;
 
   &:hover {
     transform: translateY(-6px);
@@ -131,6 +130,7 @@ const ImageWrapper = styled.div`
   width: 100%;
   height: 300px;
   overflow: hidden;
+  transition: all 0.5s ease-in-out;
 
   img {
     width: 100%;
@@ -149,6 +149,7 @@ const CardFooter = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: all 0.5s ease-in-out;
 
   h4 {
     font-size: 16px;

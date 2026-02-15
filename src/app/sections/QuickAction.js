@@ -14,7 +14,7 @@ export const QuickAction = () => {
     <SectionWrapper>
       <CTASection>
         <Overlay />
-        <Content>
+        <Content data-aos="fade-up">
           <h2>{sectionData.heading}</h2>
           <p>{sectionData.description}</p>
           <SlantedPrimaryButton href="/contact">
@@ -43,6 +43,7 @@ const CTASection = styled.section`
   background-position: center;
   border-radius: 14px;
   overflow: hidden;
+  transition: all 0.5s ease-in-out;
 
   display: flex;
   align-items: center;
@@ -57,6 +58,7 @@ const Overlay = styled.div`
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
+  transition: all 0.5s ease-in-out;
 `;
 
 const Content = styled.div`
@@ -64,6 +66,8 @@ const Content = styled.div`
   z-index: 1;
   text-align: center;
   max-width: 700px;
+  transition: all 0.5s ease-in-out;
+
   color: #fff;
 
   h2 {

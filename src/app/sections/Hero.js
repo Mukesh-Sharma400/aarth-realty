@@ -34,7 +34,7 @@ export const Hero = () => {
   };
 
   const sectionData = {
-    heading: "Find a home that suits your lifestyle.",
+    heading: "Aarth Realtor finds a home that suits your lifestyle.",
     description:
       "We offer well-planned residential and commercial properties built with quality materials, thoughtful design, and long-term value for families and businesses.",
   };

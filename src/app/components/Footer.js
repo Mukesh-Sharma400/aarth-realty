@@ -56,6 +56,7 @@ export const Footer = () => {
     { path: "/properties", label: "Properties" },
     { path: "/about", label: "About" },
     { path: "/contact", label: "Contact" },
+    { path: "/terms-and-conditions", label: "Terms & Conditions" },
   ];
 
   const servicesData = [
@@ -93,11 +94,13 @@ export const Footer = () => {
         <Column2>
           <SectionHeading>Pages</SectionHeading>
           <PagesWrapper>
-            {routesData.map((page) => (
-              <Page key={page.path} href={page.path}>
-                {page.label}
-              </Page>
-            ))}
+            {routesData
+              .filter((page) => page.path !== pathName)
+              .map((page) => (
+                <Page key={page.path} href={page.path}>
+                  {page.label}
+                </Page>
+              ))}
           </PagesWrapper>
         </Column2>
         <Column3>
@@ -285,9 +288,7 @@ const Page = styled(Link)`
     height: 1px;
     background-color: transparent;
     width: 0;
-    transition:
-      width 0.3s ease-in-out,
-      background-color 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
 
   &:hover::before {

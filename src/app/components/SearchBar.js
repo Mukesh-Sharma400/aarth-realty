@@ -20,6 +20,7 @@ const SearchWrapper = styled.div`
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr auto;
   gap: 16px;
+  transition: all 0.5s ease-in-out;
 
   @media (max-width: 700px) {
     display: none;
@@ -36,6 +37,7 @@ const Input = styled.input`
   border-radius: 12px;
   border: 1px solid #e5e7eb !important;
   font-size: 14px;
+  transition: all 0.5s ease-in-out;
 `;
 
 const Select = styled.select`
@@ -44,6 +46,7 @@ const Select = styled.select`
   border-radius: 12px;
   border: 1px solid #e5e7eb;
   font-size: 14px;
+  transition: all 0.5s ease-in-out;
 `;
 
 const SlantedPrimaryButton = styled.button`
@@ -74,7 +77,9 @@ const SlantedPrimaryButton = styled.button`
     width: 0;
     height: 2px;
     background-color: #fff;
-    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    transition:
+      width 0.3s ease-in-out,
+      background-color 0.3s ease-in-out;
   }
 
   &:hover::after {

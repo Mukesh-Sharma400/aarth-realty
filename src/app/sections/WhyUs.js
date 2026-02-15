@@ -2,33 +2,29 @@ import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
 
-
 export const WhyUs = () => {
-
-const values = [
-  {
-    title: "Integrity",
-    description: "We operate with honesty and transparency in all we do.",
-    icon: <i className="bi bi-shield-check" />,
-  },
-  {
-    title: "Client Focus",
-    description: "Your needs are our top priority.",
-    icon: <i className="bi bi-person-check" />,
-  },
-  {
-    title: "Innovation",
-    description: "We leverage technology and creativity to improve your experience.",
-    icon: <i className="bi bi-lightbulb" />,
-  },
-  {
-    title: "Community",
-    description: "We’re committed to contributing positively to the neighborhoods we serve.",
-    icon: <i className="bi bi-building" />,
-  },
-];
-
-
+  const values = [
+    {
+      title: "Integrity",
+      description: "We operate with honesty and transparency in everything.",
+      icon: <i className="bi bi-shield-check" />,
+    },
+    {
+      title: "Client Focus",
+      description: "Your needs always remain our highest priority.",
+      icon: <i className="bi bi-person-check" />,
+    },
+    {
+      title: "Innovation",
+      description: "We leverage technology to enhance experiences.",
+      icon: <i className="bi bi-lightbulb" />,
+    },
+    {
+      title: "Community",
+      description: "We actively support communities we serve.",
+      icon: <i className="bi bi-building" />,
+    },
+  ];
 
   return (
     <SectionWrapper>
@@ -42,18 +38,17 @@ const values = [
           <h2>What We Believe In</h2>
         </SectionInfo>
       </SectionHeader>
-    <ValuesSection>
-    <ValuesGrid>
-    {values.map((item, index) => (
-        <ValueCard key={index}>
-        <IconWrapper>{item.icon}</IconWrapper>
-        <h4>{item.title}</h4>
-        <p>{item.description}</p>
-        </ValueCard>
-    ))}
-    </ValuesGrid>
-    </ValuesSection>
-
+      <ValuesSection>
+        <ValuesGrid>
+          {values.map((item, index) => (
+            <ValueCard key={index} data-aos="fade-up">
+              <IconWrapper>{item.icon}</IconWrapper>
+              <h4>{item.title}</h4>
+              <p>{item.description}</p>
+            </ValueCard>
+          ))}
+        </ValuesGrid>
+      </ValuesSection>
     </SectionWrapper>
   );
 };
@@ -70,6 +65,7 @@ const SectionWrapper = styled.section`
 
 const SectionHeader = styled.div`
   // margin-bottom: 60px;
+  transition: all 0.5s ease-in-out;
 `;
 
 const SectionLabel = styled.div`
@@ -77,6 +73,7 @@ const SectionLabel = styled.div`
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
+  transition: all 0.5s ease-in-out;
 
   span {
     font-size: 14px;
@@ -110,6 +107,8 @@ const SectionInfo = styled.div`
   display: grid;
   // grid-template-columns: 1.5fr 1fr;
   align-items: center;
+  transition: all 0.5s ease-in-out;
+
   gap: 40px;
 
   h2 {
@@ -137,18 +136,15 @@ const SectionInfo = styled.div`
 
 const ValuesSection = styled.section`
   width: 100%;
-  padding: 10px 2%;
   background: #ffffff;
-
-  @media (max-width: 768px) {
-    padding: 60px 16px;
-  }
+  transition: all 0.5s ease-in-out;
 `;
 
 const ValuesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
+  transition: all 0.5s ease-in-out;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
@@ -164,7 +160,7 @@ const ValueCard = styled.div`
   border-radius: 20px;
   padding: 36px 28px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transition: all 0.5s ease-in-out;
 
   h4 {
     font-size: 20px;
@@ -194,4 +190,5 @@ const IconWrapper = styled.div`
   justify-content: center;
   font-size: 28px;
   color: #cc1e15;
+  transition: all 0.5s ease-in-out;
 `;

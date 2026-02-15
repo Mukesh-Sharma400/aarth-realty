@@ -5,7 +5,7 @@ export const Toast = ({ message, color }) => {
 };
 
 const DisplayWrapper = styled.div`
-  width: 400px;
+  width: 350px;
   height: 50px;
   border-radius: 10px;
   font-size: 16px;

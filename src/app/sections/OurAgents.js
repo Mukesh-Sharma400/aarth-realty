@@ -82,7 +82,7 @@ export const OurAgents = () => {
 
       <AgentsGrid>
         {agents.map((agent) => (
-          <AgentCard key={agent.id}>
+          <AgentCard key={agent.id} data-aos="fade-up">
             <ImageWrapper>
               <Image src={agent.image} alt={agent.name} fill />
             </ImageWrapper>
@@ -129,6 +129,7 @@ const SectionWrapper = styled.section`
 
 const SectionHeader = styled.div`
   // margin-bottom: 60px;
+  transition: all 0.5s ease-in-out;
 `;
 
 const SectionLabel = styled.div`
@@ -136,6 +137,7 @@ const SectionLabel = styled.div`
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
+  transition: all 0.5s ease-in-out;
 
   span {
     font-size: 14px;
@@ -170,6 +172,7 @@ const SectionInfo = styled.div`
   // grid-template-columns: 1.5fr 1fr;
   align-items: center;
   gap: 40px;
+  transition: all 0.5s ease-in-out;
 
   h2 {
     font-size: 36px;
@@ -198,6 +201,7 @@ const AgentsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
+  transition: all 0.5s ease-in-out;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
@@ -214,9 +218,7 @@ const AgentCard = styled.div`
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
-  transition:
-    transform 0.5s ease,
-    box-shadow 0.5s ease;
+  transition: all 0.5s ease-in-out;
 
   &:hover {
     transform: translateY(-6px);
@@ -244,6 +246,7 @@ const ImageWrapper = styled.div`
   height: 340px;
   border-radius: 14px;
   overflow: hidden;
+  transition: all 0.5s ease-in-out;
 
   img {
     object-fit: cover;
@@ -256,6 +259,7 @@ const Socials = styled.div`
   gap: 12px;
   padding: 10px;
   margin-top: 10px;
+  transition: all 0.5s ease-in-out;
 
   a {
     width: 36px;
