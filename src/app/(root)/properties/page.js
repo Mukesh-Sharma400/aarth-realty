@@ -239,10 +239,6 @@ const SlantedPrimaryButton = styled.button`
     color: #fff;
   }
 
-  @media (max-width: 700px) {
-    display: none;
-  }
-
   clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
 
   position: relative;
