@@ -7,14 +7,17 @@ import { Providers } from "./providers";
 
 export const metadata = {
   title: "Aarth Realtor",
-  description: "",
-  keywords: "",
+  description:
+    "Founded in 2025, Aarth Realtor began with a simple vision—to make property buying and investing clear, reliable, and stress-free. From local home buyers to seasoned investors, we’ve grown by delivering genuine advice and dependable service across Navi Mumbai.",
+  keywords:
+    "Property Sales, Property Leasing, Investment Advisory, Property Valuation, Legal Assistance, Property Management, Project Marketing, Tenant Screening",
   author: "Nitin Prajapati, Mukesh Sharma",
   image: "./icon.png",
-  url: "",
+  url: "aarthrealtor.com",
   type: "website",
   ogTitle: "Aarth Realtor",
-  ogDescription: "",
+  ogDescription:
+    "Founded in 2025, Aarth Realtor began with a simple vision—to make property buying and investing clear, reliable, and stress-free. From local home buyers to seasoned investors, we’ve grown by delivering genuine advice and dependable service across Navi Mumbai.",
   ogImage: "./icon.png",
   twitterTitle: "Aarth Realtor",
   twitterDescription: "",
