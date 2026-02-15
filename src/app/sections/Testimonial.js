@@ -32,7 +32,7 @@ export const Testimonials = () => {
     },
     {
       id: 2,
-      name: "Priya Mehta",
+      name: "Sunil Mehta",
       image: agent2,
       review:
         "Professional team with excellent market knowledge. They helped us find our dream home quickly and smoothly.",
@@ -40,7 +40,7 @@ export const Testimonials = () => {
     },
     {
       id: 3,
-      name: "Rahul Verma",
+      name: "Sneha Kapoor",
       image: agent3,
       review:
         "Very responsive and transparent throughout the entire process. Truly reliable real estate experts.",
@@ -48,7 +48,7 @@ export const Testimonials = () => {
     },
     {
       id: 4,
-      name: "Sneha Kapoor",
+      name: "Rahul Verma",
       image: agent4,
       review:
         "Exceptional service and attention to detail. They handled everything efficiently and professionally.",
