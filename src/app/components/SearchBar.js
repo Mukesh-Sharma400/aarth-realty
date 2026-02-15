@@ -1,24 +1,50 @@
 import styled from "styled-components";
 
-export const SearchBar = () => {
+export const SearchBar = ({
+  category,
+  setCategory,
+  type,
+  setType,
+  budget,
+  setBudget,
+  handleClearFilters,
+}) => {
   return (
     <SearchWrapper>
-      <Input placeholder="Search here..." />
-      <Select>
-        <option>Property Type</option>
-        <option>Apartment</option>
-        <option>Villa</option>
-        <option>House</option>
+      {/* Buy / Rent */}
+      <Select value={category} onChange={(e) => setCategory(e.target.value)}>
+        <option value="">Category</option>
+        <option value="Buy">Buy</option>
+        <option value="Rent">Rent</option>
       </Select>
-      <Input placeholder="Max Budget" />
-      <SlantedPrimaryButton>Search</SlantedPrimaryButton>
+
+      {/* Property Type */}
+      <Select value={type} onChange={(e) => setType(e.target.value)}>
+        <option value="">Property Type</option>
+        <option value="1 BHK">1 BHK</option>
+        <option value="2 BHK">2 BHK</option>
+        <option value="3 BHK">3 BHK</option>
+        <option value="Office">Office</option>
+      </Select>
+
+      {/* Budget */}
+      <Input
+        type="number"
+        placeholder="Max Budget"
+        value={budget}
+        onChange={(e) => setBudget(e.target.value)}
+      />
+
+      <SlantedPrimaryButton onClick={handleClearFilters}>
+        Clear
+      </SlantedPrimaryButton>
     </SearchWrapper>
   );
 };
 
 const SearchWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr auto;
+  grid-template-columns: 1fr 1fr 1fr auto;
   gap: 16px;
   transition: all 0.5s ease-in-out;
 
@@ -50,7 +76,7 @@ const Select = styled.select`
 `;
 
 const SlantedPrimaryButton = styled.button`
-  width: 200px;
+  width: 100px;
   height: 50px;
   font-size: 16px;
   font-weight: 600;

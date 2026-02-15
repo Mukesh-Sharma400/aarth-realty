@@ -20,7 +20,7 @@ export const Counting = () => {
     clients: 20,
     sales: 30,
     clientSatisfaction: 99,
-    years: currentYear - 2025,
+    years: currentYear - 2001,
   };
 
   return (

@@ -1,29 +1,40 @@
-import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
-import backgroundImage from "../../../public/assets/hero-background.jpg";
+import oneBhkFlatBuy from "../../../public/assets/1_BHK_Flat_Buy.jpg";
+import twoBhkFlatBuy from "../../../public/assets/2_BHK_Flat_Buy.webp";
+import threeBhkFlatBuy from "../../../public/assets/3_BHK_Flat_Buy.jpg";
 
 export const TopListing = () => {
+  const phoneNumber = "+918976630666";
+
   const listings = [
     {
       id: 1,
-      title: "Family House",
-      price: "Start from ₹75L",
-      image: backgroundImage,
+      type: "1 BHK",
+      category: "Buy",
+      price: 4000000,
+      image: oneBhkFlatBuy,
     },
     {
       id: 2,
-      title: "Apartment",
-      price: "Start from ₹65L",
-      image: backgroundImage,
+      type: "2 BHK",
+      category: "Buy",
+      price: 6000000,
+      image: twoBhkFlatBuy,
     },
     {
       id: 3,
-      title: "Guest House",
-      price: "Start from ₹85L",
-      image: backgroundImage,
+      type: "3 BHK",
+      category: "Buy",
+      price: 9000000,
+      image: threeBhkFlatBuy,
     },
   ];
+
+  const handleOpenDialer = () => {
+    const telUrl = `tel:${phoneNumber}`;
+    window.location.href = telUrl;
+  };
 
   return (
     <SectionWrapper>
@@ -47,17 +58,19 @@ export const TopListing = () => {
         {listings.map((item) => (
           <Card key={item.id} data-aos="fade-up">
             <ImageWrapper>
-              <Image src={item.image} alt={item.title} />
+              <Image src={item.image} alt={item.type} />
             </ImageWrapper>
-
             <CardFooter>
               <div>
-                <h4>{item.title}</h4>
-                <span>{item.price}</span>
+                <h4>
+                  {item.type} - {item.category}
+                </h4>
+                <span>Starting from ₹{item.price.toLocaleString()}</span>
               </div>
-              <SlantedArrowButton>
-                <span className="transition" />→
-              </SlantedArrowButton>
+              <SlantedPrimaryButton onClick={handleOpenDialer}>
+                <span className="transition"></span>
+                <span className="label">Call Now →</span>
+              </SlantedPrimaryButton>
             </CardFooter>
           </Card>
         ))}
@@ -297,9 +310,9 @@ const SlantedArrowButton = styled.div`
 `;
 
 const SlantedPrimaryButton = styled.button`
-  width: 200px;
+  width: 120px;
   height: 44px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: #fff;
   background: linear-gradient(135deg, #cc1e15, #c01209ff);
@@ -311,6 +324,11 @@ const SlantedPrimaryButton = styled.button`
   position: relative;
   transition: transform 0.3s ease;
   overflow: visible;
+
+  span {
+    font-size: 14px;
+    color: #fff;
+  }
 
   &:hover {
     transform: translateY(-2px);

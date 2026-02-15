@@ -21,7 +21,7 @@ export const Footer = () => {
 
   const sectionData = {
     description:
-      "Established in 2025, Aarth Realtor has helped clients find the right homes and investment opportunities across Navi Mumbai, with transparency and trust.",
+      "Established in 2001, Aarth Realtor has helped clients find the right homes and investment opportunities across Navi Mumbai, with transparency and trust.",
   };
 
   const socialLinks = [

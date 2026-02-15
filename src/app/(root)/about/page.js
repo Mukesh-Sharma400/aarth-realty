@@ -42,7 +42,7 @@ export default function About() {
     smallHeading: "How we Started",
     heading: "Modern Living Thoughtfully Designed",
     description:
-      "Founded in 2025, Aarth Realtor began with a simple vision—to make property buying and investing clear, reliable, and stress-free. From local home buyers to seasoned investors, we’ve grown by delivering genuine advice and dependable service across Navi Mumbai.",
+      "Founded in 2001, Aarth Realtor began with a simple vision—to make property buying and investing clear, reliable, and stress-free. From local home buyers to seasoned investors, we’ve grown by delivering genuine advice and dependable service across Navi Mumbai.",
   };
 
   const sectionData2 = {

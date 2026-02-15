@@ -2,17 +2,22 @@
 
 import Image from "next/image";
 import styled from "styled-components";
+import { useMemo, useState } from "react";
 import BaseLayout from "../../components/BaseLayout";
 import { SearchBar } from "../../components/SearchBar";
-import villa from "../../../../public/assets/villa.jpg";
 import { PageHeader } from "@/app/components/PageHeader";
-import cta_bg from "../../../../public/assets/cta_bg.jpg";
-import apartment from "../../../../public/assets/apartment.jpg";
-import guest_house from "../../../../public/assets/guest_house.jpg";
-import family_house from "../../../../public/assets/family_house.jpg";
-import backgroundImage from "../../../../public/assets/hero-background.jpg";
+import oneBhkFlatBuy from "../../../../public/assets/1_BHK_Flat_Buy.jpg";
+import oneBhkFlatRent from "../../../../public/assets/1_BHK_Flat_Rent.jpg";
+import twoBhkFlatBuy from "../../../../public/assets/2_BHK_Flat_Buy.webp";
+import twoBhkFlatRent from "../../../../public/assets/2_BHK_Flat_Rent.avif";
+import threeBhkFlatBuy from "../../../../public/assets/3_BHK_Flat_Buy.jpg";
+import threeBhkFlatRent from "../../../../public/assets/3_BHK_Flat_Rent.avif";
+import officeBuy from "../../../../public/assets/Office_Buy.avif";
+import officeRent from "../../../../public/assets/Office_Rent.jpg";
 
 export default function Properties() {
+  const phoneNumber = "+918976630666";
+
   const pageHeader = {
     heading: "Properties",
     description:
@@ -22,62 +27,116 @@ export default function Properties() {
   const properties = [
     {
       id: 1,
-      title: "Family House",
-      price: "Start from ₹75L",
-      image: family_house,
+      type: "1 BHK",
+      category: "Buy",
+      price: 4000000,
+      image: oneBhkFlatBuy,
     },
     {
       id: 2,
-      title: "Apartment",
-      price: "Start from ₹65L",
-      image: apartment,
+      type: "2 BHK",
+      category: "Buy",
+      price: 6000000,
+      image: twoBhkFlatBuy,
     },
     {
       id: 3,
-      title: "Guest House",
-      price: "Start from ₹75L",
-      image: guest_house,
+      type: "3 BHK",
+      category: "Buy",
+      price: 9000000,
+      image: threeBhkFlatBuy,
     },
     {
       id: 4,
-      title: "villa House",
-      price: "Start from ₹95L",
-      image: villa,
+      type: "Office",
+      category: "Buy",
+      price: 10000000,
+      image: officeBuy,
     },
     {
       id: 5,
-      title: "Family House",
-      price: "Start from ₹75L",
-      image: cta_bg,
+      type: "1 BHK",
+      category: "Rent",
+      price: 17000,
+      image: oneBhkFlatRent,
     },
     {
       id: 6,
-      title: "Apartment",
-      price: "Start from ₹65L",
-      image: backgroundImage,
+      type: "2 BHK",
+      category: "Rent",
+      price: 60000,
+      image: twoBhkFlatRent,
+    },
+    {
+      id: 7,
+      type: "3 BHK",
+      category: "Rent",
+      price: 90000,
+      image: threeBhkFlatRent,
+    },
+    {
+      id: 8,
+      type: "Office",
+      category: "Rent",
+      price: 15000,
+      image: officeRent,
     },
   ];
+  const [category, setCategory] = useState("");
+  const [type, setType] = useState("");
+  const [budget, setBudget] = useState("");
+
+  const filteredProperties = useMemo(() => {
+    return properties.filter((item) => {
+      const matchCategory = category ? item.category === category : true;
+      const matchType = type ? item.type === type : true;
+      const matchBudget = budget ? item.price <= Number(budget) : true;
+
+      return matchCategory && matchType && matchBudget;
+    });
+  }, [category, type, budget]);
+
+  const handleClearFilters = () => {
+    setCategory("");
+    setType("");
+    setBudget("");
+  };
+
+  const handleOpenDialer = () => {
+    const telUrl = `tel:${phoneNumber}`;
+    window.location.href = telUrl;
+  };
 
   return (
     <BaseLayout>
       <PageHeader pageHeader={pageHeader} />
       <SectionWrapper>
-        {/* <SearchBar /> */}
+        <SearchBar
+          category={category}
+          setCategory={setCategory}
+          type={type}
+          setType={setType}
+          budget={budget}
+          setBudget={setBudget}
+          handleClearFilters={handleClearFilters}
+        />
         <CardsWrapper>
-          {properties.map((item) => (
-            <Card key={item.id}>
+          {filteredProperties.map((item) => (
+            <Card key={item.id} data-aos="fade-up">
               <ImageWrapper>
-                <Image src={item.image} alt={item.title} />
+                <Image src={item.image} alt={item.type} />
               </ImageWrapper>
-
               <CardFooter>
                 <div>
-                  <h4>{item.title}</h4>
-                  <span>{item.price}</span>
+                  <h4>
+                    {item.type} - {item.category}
+                  </h4>
+                  <span>Starting from ₹{item.price.toLocaleString()}</span>
                 </div>
-                <SlantedArrowButton>
-                  <span className="transition" />→
-                </SlantedArrowButton>
+                <SlantedPrimaryButton onClick={handleOpenDialer}>
+                  <span className="transition"></span>
+                  <span className="label">Call Now →</span>
+                </SlantedPrimaryButton>
               </CardFooter>
             </Card>
           ))}
@@ -164,22 +223,30 @@ const CardFooter = styled.div`
   }
 `;
 
-const SlantedArrowButton = styled.div`
-  width: 44px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: linear-gradient(135deg, #cc1e15, #c01209ff);
+const SlantedPrimaryButton = styled.button`
+  width: 120px;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 600;
   color: #fff;
-  font-size: 18px;
+  background: linear-gradient(135deg, #cc1e15, #c01209ff);
+  border: none;
   cursor: pointer;
+  display: block;
+
+  span {
+    font-size: 14px;
+    color: #fff;
+  }
+
+  @media (max-width: 700px) {
+    display: none;
+  }
+
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+
   position: relative;
-
-  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease;
   overflow: visible;
 
   &:hover {
@@ -200,6 +267,18 @@ const SlantedArrowButton = styled.div`
   }
 
   &:hover::after {
-    width: 60%;
+    width: 70%;
+  }
+
+  @media (max-width: 1024px) {
+    width: 170px;
+    height: 40px;
+    font-size: 15px;
+  }
+
+  @media (max-width: 426px) {
+    width: 130px;
+    height: 34px;
+    font-size: 14px;
   }
 `;
