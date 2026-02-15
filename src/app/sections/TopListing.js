@@ -366,7 +366,7 @@ const SlantedPrimaryButton = styled.button`
 `;
 
 const ViewMoreButton = styled.button`
-  width: 120px;
+  width: 200px;
   height: 44px;
   font-size: 14px;
   font-weight: 600;
