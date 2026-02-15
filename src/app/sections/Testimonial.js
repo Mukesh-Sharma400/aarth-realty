@@ -1,13 +1,74 @@
-import Link from "next/link";
+"use client";
+
 import Image from "next/image";
+import Slider from "react-slick";
 import styled from "styled-components";
 import agent1 from "../../../public/assets/agent1.jpg";
 import agent2 from "../../../public/assets/agent2.jpg";
 import agent3 from "../../../public/assets/agent3.jpg";
 import agent4 from "../../../public/assets/agent4.jpg";
-import backgroundImage from "../../../public/assets/hero-background.jpg";
 
 export const Testimonials = () => {
+  const settings = {
+    dots: true,
+    arrows: false,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
+  };
+
+  const testimonials = [
+    {
+      id: 1,
+      name: "Ashok Chaudhary",
+      image: agent1,
+      review:
+        "Aarth Realton communicated outstandingly, keeping us informed throughout our property search and sale. Their friendly approach made a stressful time manageable. Highly recommend!",
+      rating: 5,
+    },
+    {
+      id: 2,
+      name: "Priya Mehta",
+      image: agent2,
+      review:
+        "Professional team with excellent market knowledge. They helped us find our dream home quickly and smoothly.",
+      rating: 4,
+    },
+    {
+      id: 3,
+      name: "Rahul Verma",
+      image: agent3,
+      review:
+        "Very responsive and transparent throughout the entire process. Truly reliable real estate experts.",
+      rating: 5,
+    },
+    {
+      id: 4,
+      name: "Sneha Kapoor",
+      image: agent4,
+      review:
+        "Exceptional service and attention to detail. They handled everything efficiently and professionally.",
+      rating: 4,
+    },
+  ];
+
+  const renderStars = (rating) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      stars.push(
+        <i
+          key={i}
+          className={i <= rating ? "bi bi-star-fill" : "bi bi-star"}
+        ></i>,
+      );
+    }
+    return stars;
+  };
+
   return (
     <TestimonialsSection>
       <SectionHeader>
@@ -18,57 +79,53 @@ export const Testimonials = () => {
 
         <SectionInfo>
           <h2>What Our Client Are Saying</h2>
-
-          {/* <p>
-            Comprehensive legal services, expertly delivered. We provide through
-            support and guidance for all your legal matter, handled with utmost
-            care.
-          </p> */}
         </SectionInfo>
       </SectionHeader>
 
-      <CardsWrapper>
-        <TestimonialCard>
-          <ImageBox data-aos="fade-left">
-            <Image src={agent1} alt="" />
-          </ImageBox>
-          <Content>
-            <span className="left-quote">“</span>
-            <p>
-              Aarth Realton communicated outstandingly, keeping us informed
-              throughout our property search and sale. Their friendly approach
-              made a stressful time manageable. Highly recommend!
-            </p>
-            <h4>- Yono Bakrie</h4>
-            <span className="right-quote">“</span>
-          </Content>
-        </TestimonialCard>
-      </CardsWrapper>
+      <MySlider {...settings}>
+        {testimonials.map((item) => (
+          <TestimonialCard key={item.id}>
+            <ImageBox>
+              <Image
+                src={item.image}
+                alt={item.name}
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </ImageBox>
+
+            <Content>
+              <span className="left-quote">“</span>
+
+              <p>{item.review}</p>
+
+              <Ratings>{renderStars(item.rating)}</Ratings>
+
+              <h4>- {item.name}</h4>
+
+              <span className="right-quote">”</span>
+            </Content>
+          </TestimonialCard>
+        ))}
+      </MySlider>
     </TestimonialsSection>
   );
 };
 
 const TestimonialsSection = styled.section`
   width: 100%;
-  padding: 50px 5%;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+  padding: 80px 5%;
   background: #ffffff;
-  transition: all 0.5s ease-in-out;
 `;
 
 const SectionHeader = styled.div`
-  // margin-bottom: 60px;
-  transition: all 0.5s ease-in-out;
+  margin-bottom: 50px;
 `;
 
 const SectionLabel = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-  transition: all 0.5s ease-in-out;
-
   margin-bottom: 20px;
 
   span {
@@ -84,88 +141,52 @@ const SectionLabel = styled.div`
     height: 1px;
     background-color: #cc1e15;
   }
-
-  i {
-    animation: expand 0.8s ease forwards;
-  }
-
-  @keyframes expand {
-    from {
-      width: 0;
-    }
-    to {
-      width: 60px;
-    }
-  }
 `;
 
 const SectionInfo = styled.div`
-  display: grid;
-  // grid-template-columns: 1.5fr 1fr;
-  align-items: center;
-  gap: 40px;
-  transition: all 0.5s ease-in-out;
-
   h2 {
     font-size: 36px;
     font-weight: 400;
     color: #111827;
-    line-height: 1.2;
-  }
-
-  p {
-    font-size: 15px;
-    line-height: 1.7;
-    color: #6b7280;
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 20px;
-
     h2 {
       font-size: 26px;
     }
   }
 `;
 
-const CardsWrapper = styled.div`
-  display: flex;
-  gap: 30px;
-  overflow-x: auto;
-  transition: all 0.5s ease-in-out;
+const MySlider = styled(Slider)`
+  .slick-slide {
+    padding: 0 15px;
+  }
+
+  .slick-dots li button:before {
+    color: #cc1e15;
+  }
 `;
 
 const TestimonialCard = styled.div`
-  min-width: 580px;
-  display: flex;
+  display: flex !important;
   gap: 30px;
   padding: 30px;
   border-radius: 24px;
   border: 1px solid #e5e7eb;
-  transition: all 0.5s ease-in-out;
-
   background: #fff;
 
   @media (max-width: 768px) {
     flex-direction: column;
-    min-width: 100%;
   }
 `;
 
 const ImageBox = styled.div`
+  position: relative;
   width: 260px;
-  height: 260px;
+  aspect-ratio: 1 / 1;
   border-radius: 20px;
   overflow: hidden;
   flex-shrink: 0;
-  transition: all 0.5s ease-in-out;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
 
   @media (max-width: 768px) {
     width: 100%;
@@ -174,7 +195,6 @@ const ImageBox = styled.div`
 
 const Content = styled.div`
   position: relative;
-  transition: all 0.5s ease-in-out;
 
   .left-quote {
     font-size: 60px;
@@ -186,7 +206,6 @@ const Content = styled.div`
     position: absolute;
     bottom: 0;
     right: 0;
-    rotate: 180deg;
     font-size: 60px;
     color: #111827;
     line-height: 1;
@@ -195,11 +214,19 @@ const Content = styled.div`
   p {
     font-size: 18px;
     line-height: 1.6;
-    margin-bottom: 30px !important;
+    margin-bottom: 20px;
   }
 
   h4 {
     font-size: 18px;
     font-weight: 600;
   }
+`;
+
+const Ratings = styled.div`
+  display: flex;
+  gap: 5px;
+  font-size: 16px;
+  color: #fbbc04;
+  margin-bottom: 15px;
 `;

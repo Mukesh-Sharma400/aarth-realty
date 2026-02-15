@@ -10,32 +10,30 @@ export const OurAgents = () => {
   const agents = [
     {
       id: 1,
-      name: "Vikram Reddy",
-      role: "Agent Family House",
+      name: "Tannu Sharma",
+      role: "Director",
       image: agent1,
     },
-
     {
       id: 2,
-      name: "Aditya Desai",
-      role: "Agent Apartment",
+      name: "Shlok Khatri",
+      role: "Digital Marketing",
       image: agent2,
     },
-
     {
       id: 3,
-      name: "Shreya Singh",
-      role: "Agent Condo",
+      name: "Tejas Kaushik",
+      role: "Sales Executive",
       image: agent3,
     },
-
     {
       id: 4,
-      name: "Surya Patel",
-      role: "Agent Villa",
+      name: "Kushal Gandhi",
+      role: "Sales Executive & IT",
       image: agent4,
     },
   ];
+
   const socialLinks = [
     {
       className: "bi bi-whatsapp",
@@ -96,7 +94,7 @@ export const OurAgents = () => {
                 <a href="#">in</a>
                 <a href="#">◎</a>
                 </Socials> */}
-            <SocialLinksWrapper>
+            {/* <SocialLinksWrapper>
               {socialLinks.map((link, index) => (
                 <SocialLink
                   key={index}
@@ -109,7 +107,7 @@ export const OurAgents = () => {
                   aria-label={link.ariaLabel}
                 ></SocialLink>
               ))}
-            </SocialLinksWrapper>
+            </SocialLinksWrapper> */}
           </AgentCard>
         ))}
       </AgentsGrid>
@@ -217,6 +215,7 @@ const AgentCard = styled.div`
   background: #fff;
   border-radius: 14px;
   overflow: hidden;
+  padding: 20px;
   box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
   transition: all 0.5s ease-in-out;
 
@@ -243,12 +242,14 @@ const AgentCard = styled.div`
 const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 340px;
+  aspect-ratio: 1 / 1;
   border-radius: 14px;
   overflow: hidden;
   transition: all 0.5s ease-in-out;
 
   img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 `;
