@@ -48,10 +48,6 @@ const SearchWrapper = styled.div`
   gap: 16px;
   transition: all 0.5s ease-in-out;
 
-  @media (max-width: 700px) {
-    display: none;
-  }
-
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
