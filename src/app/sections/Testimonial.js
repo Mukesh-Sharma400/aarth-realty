@@ -3,10 +3,10 @@
 import Image from "next/image";
 import Slider from "react-slick";
 import styled from "styled-components";
-import agent1 from "../../../public/assets/agent1.jpg";
-import agent2 from "../../../public/assets/agent2.jpg";
-import agent3 from "../../../public/assets/agent3.jpg";
-import agent4 from "../../../public/assets/agent4.jpg";
+import customer1 from "../../../public/assets/customer1.jpg";
+import customer2 from "../../../public/assets/customer2.jpg";
+import customer3 from "../../../public/assets/customer3.jpg";
+import customer4 from "../../../public/assets/customer4.jpg";
 
 export const Testimonials = () => {
   const settings = {
@@ -25,7 +25,7 @@ export const Testimonials = () => {
     {
       id: 1,
       name: "Ashok Chaudhary",
-      image: agent1,
+      image: customer1,
       review:
         "Aarth Realton communicated outstandingly, keeping us informed throughout our property search and sale. Their friendly approach made a stressful time manageable. Highly recommend!",
       rating: 5,
@@ -33,7 +33,7 @@ export const Testimonials = () => {
     {
       id: 2,
       name: "Sunil Mehta",
-      image: agent2,
+      image: customer2,
       review:
         "Professional team with excellent market knowledge. They helped us find our dream home quickly and smoothly.",
       rating: 4,
@@ -41,7 +41,7 @@ export const Testimonials = () => {
     {
       id: 3,
       name: "Sneha Kapoor",
-      image: agent3,
+      image: customer3,
       review:
         "Very responsive and transparent throughout the entire process. Truly reliable real estate experts.",
       rating: 5,
@@ -49,7 +49,7 @@ export const Testimonials = () => {
     {
       id: 4,
       name: "Rahul Verma",
-      image: agent4,
+      image: customer4,
       review:
         "Exceptional service and attention to detail. They handled everything efficiently and professionally.",
       rating: 4,
