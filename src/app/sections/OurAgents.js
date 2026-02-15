@@ -228,13 +228,13 @@ const AgentCard = styled.div`
 
   h4 {
     margin: 10px 0px 5px !important;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 600;
   }
 
   .role {
     display: block;
-    font-size: 14px;
+    font-size: 16px;
     color: #6b7280;
   }
 `;
