@@ -130,10 +130,4 @@ const SlantedPrimaryButton = styled.button`
     height: 40px;
     font-size: 15px;
   }
-
-  @media (max-width: 426px) {
-    width: 130px;
-    height: 34px;
-    font-size: 14px;
-  }
 `;
