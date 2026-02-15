@@ -48,21 +48,9 @@ export const Hero = () => {
     },
     {
       className: "bi bi-instagram",
-      href: "",
+      href: "https://www.instagram.com/aarth_realtor",
       tooltip: "Instagram",
       ariaLabel: "Instagram",
-    },
-    {
-      className: "bi bi-facebook",
-      href: "",
-      tooltip: "Facebook",
-      ariaLabel: "Facebook",
-    },
-    {
-      className: "bi bi-threads",
-      href: "",
-      tooltip: "Threads",
-      ariaLabel: "Threads",
     },
   ];
 
