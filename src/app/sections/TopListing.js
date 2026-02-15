@@ -77,10 +77,10 @@ export const TopListing = () => {
       </CardsWrapper>
 
       <SectionFooter>
-        <SlantedPrimaryButton href="/properties">
+        <ViewMoreButton href="/properties">
           <span className="transition"></span>
           <span className="label">View More →</span>
-        </SlantedPrimaryButton>
+        </ViewMoreButton>
       </SectionFooter>
     </SectionWrapper>
   );
@@ -362,5 +362,53 @@ const SlantedPrimaryButton = styled.button`
     width: 130px;
     height: 34px;
     font-size: 14px;
+  }
+`;
+
+const ViewMoreButton = styled.button`
+  width: 120px;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #cc1e15, #c01209ff);
+  border: none;
+  cursor: pointer;
+
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+
+  position: relative;
+  transition: transform 0.3s ease;
+  overflow: visible;
+
+  span {
+    font-size: 14px;
+    color: #fff;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Underline */
+  &::after {
+    content: "";
+    position: absolute;
+    left: 1%;
+    bottom: 1px;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition:
+      width 0.3s ease-in-out,
+      background-color 0.3s ease-in-out;
+  }
+
+  &:hover::after {
+    width: 70%;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
   }
 `;

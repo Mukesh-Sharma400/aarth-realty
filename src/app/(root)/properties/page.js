@@ -82,6 +82,7 @@ export default function Properties() {
       image: officeRent,
     },
   ];
+
   const [category, setCategory] = useState("");
   const [type, setType] = useState("");
   const [budget, setBudget] = useState("");
