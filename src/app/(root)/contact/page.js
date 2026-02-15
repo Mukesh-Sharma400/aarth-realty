@@ -465,11 +465,11 @@ const RightSide = styled.div`
     height: fit-content;
   }
   @media (max-width: 376px) {
-    padding: 40px;
+    padding: 30px;
     gap: 30px;
   }
   @media (max-width: 321px) {
-    padding: 30px;
+    padding: 20px;
     gap: 25px;
   }
 `;
