@@ -2,8 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
 import cta_bg from "../../../public/assets/cta_bg.jpg";
+import { useRouter } from "next/navigation";
 
 export const QuickAction = () => {
+  const router = useRouter();
   const sectionData = {
     heading: "Let’s Help You Find the Right Home",
     description:
@@ -17,7 +19,7 @@ export const QuickAction = () => {
         <Content data-aos="fade-up">
           <h2>{sectionData.heading}</h2>
           <p>{sectionData.description}</p>
-          <SlantedPrimaryButton href="/contact">
+          <SlantedPrimaryButton onClick={() => router.push("/contact")}>
             <span className="transition"></span>
             <span className="label">Get in Touch →</span>
           </SlantedPrimaryButton>

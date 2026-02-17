@@ -7,12 +7,16 @@ import { uiState } from "../redux/uiSlice";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import logo from "../../../public/assets/logo.png";
+import { useRouter } from "next/navigation";
+
 
 export const Header = () => {
   const pathname = usePathname();
   const { theme } = useSelector(uiState);
   const [scrolled, setScrolled] = useState(false);
   const [sideMenuOpened, setSideMenuOpened] = useState(false);
+  
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,7 +59,7 @@ export const Header = () => {
           ))}
         </RoutesWrapper>
         <RightActions>
-          <SlantedPrimaryButton href="/contact">
+          <SlantedPrimaryButton onClick={() => router.push("/contact")}>
             <span className="transition"></span>
             <span className="label">Get in Touch →</span>
           </SlantedPrimaryButton>

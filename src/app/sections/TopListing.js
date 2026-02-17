@@ -3,8 +3,10 @@ import styled from "styled-components";
 import oneBhkFlatBuy from "../../../public/assets/1_BHK_Flat_Buy.jpg";
 import twoBhkFlatBuy from "../../../public/assets/2_BHK_Flat_Buy.webp";
 import threeBhkFlatBuy from "../../../public/assets/3_BHK_Flat_Buy.jpg";
+import { useRouter } from "next/navigation";
 
 export const TopListing = () => {
+  const router = useRouter();
   const phoneNumber = "+918976630666";
 
   const listings = [
@@ -77,7 +79,7 @@ export const TopListing = () => {
       </CardsWrapper>
 
       <SectionFooter>
-        <ViewMoreButton href="/properties">
+        <ViewMoreButton onClick={() => router.push("/properties")}>
           <span className="transition"></span>
           <span className="label">View More →</span>
         </ViewMoreButton>

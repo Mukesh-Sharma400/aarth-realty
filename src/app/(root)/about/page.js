@@ -94,7 +94,7 @@ export default function About() {
             <h2>Meet the Person Behind</h2>
           </SectionInfo>
           <BigSectionWrapper>
-            <OwnerImage src={agent1} alt="" data-aos="fade-left" />
+            <OwnerImage src={agent1} alt="" data-aos="fade-up" />
             <div>
               <SectionHeading>{sectionData0.heading}</SectionHeading>
               <SectionDescription>
